@@ -1,0 +1,56 @@
+{% extends "main.html" %}
+
+{% block main %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form id="form" class="row g-3 needs-validation" novalidate>
+        
+        <div class="col-md-4">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
+          <div class="valid-feedback">Tudo certo!</div>
+          <div class="invalid-feedback">Por favor, informe seu nome.</div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="sobrenome" class="form-label">Sobrenome</label>
+          <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required>
+          <div class="valid-feedback">Tudo certo!</div>
+          <div class="invalid-feedback">Por favor, informe seu sobrenome.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="cpf" class="form-label">CPF</label>
+          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+          <div class="valid-feedback">Tudo certo!</div>
+          <div class="invalid-feedback">Por favor, informe um CPF válido.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="rg" class="form-label">RG</label>
+          <input type="text" class="form-control" id="rg" name="rg" placeholder="Digite seu RG" required>
+          <div class="valid-feedback">Tudo certo!</div>
+          <div class="invalid-feedback">Por favor, informe seu RG.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="senha" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
+          <div class="valid-feedback">Tudo certo!</div>
+          <div class="invalid-feedback">Por favor, informe uma senha.</div>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary" type="button" id="insert">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+{% include "script.html"%}
+<script defer type="module" src="/js/user.js"></script>
+{% endblock %}
