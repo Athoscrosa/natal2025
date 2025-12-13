@@ -1,3 +1,5 @@
+import { Requests } from "./Requests";
+
 const tabela = new $('#tabela').DataTable({
     paging: true,
     lengthChange: true,

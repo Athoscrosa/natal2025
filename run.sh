@@ -54,6 +54,38 @@ create_database_if_not_exists() {
 create_schema_objects() {
     echo ">> Conectando ao banco '${PG_DB}' e criando objetos..."
 sudo -u postgres psql -d "${PG_DB}" <<EOF
+
+create table uf(
+	id bigserial primary key,
+	sigla text,
+	nome text, 
+	data_cadastro timestamp default current_timestamp,
+	data_alteracao timestamp default current_timestamp
+);
+
+create table cidade(
+	id bigserial primary key, 
+	id_uf bigint,
+	nome text,
+	ibge text,
+	data_cadastro timestamp default current_timestamp,
+	data_alteracao timestamp default current_timestamp,
+	constraint cidade_id_uf foreign key (id_uf) references uf(id)
+);
+
+-- Tabela usuario cliente
+
+create table cliente(
+	id bigserial primary key,
+	nome_fantasia text,
+	sobrenome_razao text,
+	cpf_cnpj text,
+	rg_ie text,
+	data_nascimento_abertura date,
+	data_cadastro timestamp default current_timestamp,
+	data_alteracao timestamp default current_timestamp
+);
+
     -- Tabela usuario
     CREATE TABLE IF NOT EXISTS usuario (
         id bigserial PRIMARY KEY,
@@ -68,7 +100,60 @@ sudo -u postgres psql -d "${PG_DB}" <<EOF
         codigo_verificacao text,
         data_cadastro timestamp DEFAULT CURRENT_TIMESTAMP,
         data_alteracao timestamp DEFAULT CURRENT_TIMESTAMP
-    );
+);
+
+-- Tabela empresa
+
+create table empresa(
+	id bigserial primary key,
+	nome_fantasia text,
+	sobrenome_razao text,
+	cpf_cnpj text,
+	rg_ie text,
+	data_nascimento_abertura date,
+	data_cadastro timestamp default current_timestamp,
+	data_alteracao timestamp default current_timestamp
+);
+
+-- Tabela fornecedor
+
+create table fornecedor(
+	id bigserial primary key,
+	nome_fantasia text,
+	sobrenome_razao text,
+	cpf_cnpj text,
+	rg_ie text,
+	data_nascimento_abertura date,
+	data_cadastro timestamp default current_timestamp,
+	data_alteracao timestamp default current_timestamp
+);
+
+-- Tabela endereco
+
+create table endereco(
+	id bigserial primary key, 
+	id_cidade bigint,
+	id_cliente bigint,
+	id_usuario bigint,
+	id_empresa bigint,
+	id_fornecedor bigint,
+	nome text,
+	cep text,
+	numero text,
+	logradouro text,
+	bairro text,
+	complemento text,
+	referencia text,
+	data_cadastro timestamp default current_timestamp,
+	data_alteracao timestamp default current_timestamp,
+	constraint endereco_id_cidade foreign key (id_cidade) references cidade(id),
+	constraint contato_id_usuario foreign key (id_usuario) references usuario(id),
+	constraint contato_id_cliente foreign key (id_cliente) references cliente(id),
+	constraint contato_id_empresa foreign key (id_empresa) references empresa(id),
+	constraint contato_id_fornecedor foreign key (id_fornecedor) references fornecedor(id)
+);
+
+
     -- Tabela contato
     CREATE TABLE IF NOT EXISTS contato (
         id bigserial PRIMARY KEY,

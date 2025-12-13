@@ -10,13 +10,13 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../app/helper/settings.php';
 
 #gera um codigo de 6 digitos para recuperação de email.
-$codigo = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+/*$codigo = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
 
 $email = Email::add('Esqueci minha senha', "<h1>olá mundo{$codigo}</h1>", 'Athos Cordeiro', 'athoscordeiro@hotmail.com');
 $IsSend = $email->send();
 
-#var_dump($IsSend);
-#die;
+var_dump($IsSend);
+die;*/
 
 #Cria a aplicação Slim, retornando um objeto que representa o servidor HTTP e gerenciador de rotas.
 $app = AppFactory::create();

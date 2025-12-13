@@ -1,0 +1,111 @@
+{% extends "main.html" %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form id="form" class="row g-3 needs-validation" novalidate>
+
+                <div class="col-md-4">
+                    <label for="razao_social" class="form-label">Razão Social</label>
+                    <input type="text" class="form-control" id="razao_social" name="razao_social"
+                        placeholder="Digite a Razão Social" required>
+                    <div class="valid-feedback">Válido!</div>
+                    <div class="invalid-feedback">Por favor, informe a RAZÃO SOCIAL.</div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="fantasia" class="form-label">Fantasia</label>
+                    <input type="text" class="form-control" id="fantasia" name="fantasia"
+                        placeholder="Digite o Nome Fantasia" required>
+                    <div class="valid-feedback">Válido!</div>
+                    <div class="invalid-feedback">Por favor, informe a FANTASIA.</div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone"
+                        placeholder="Digite o Telefefone" required>
+                    <div class="valid-feedback">Válido!</div>
+                    <div class="invalid-feedback">Informe seu número de telefone.</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="cnpj" class="form-label">CNPJ</label>
+                    <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ"
+                        required>
+                    <div class="valid-feedback">Válido!</div>
+                    <div class="invalid-feedback">Por favor, informe o CNPJ.</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="ie" class="form-label">IE</label>
+                    <input type="text" class="form-control" id="ie" name="ie" placeholder="Digite seu IE" required>
+                    <div class="valid-feedback">Válido!</div>
+                    <div class="invalid-feedback">Por favor, informe Inscrição Estadoal.</div>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000">
+                    <div class="valid-feedback">Válido!</div>
+                    <div class="invalid-feedback">Informe sua cidade.</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Digite sua cidade"
+                        required>
+                    <div class="valid-feedback">Válido!</div>
+                    <div class="invalid-feedback">Por favor, informe a Cidade.</div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select class="form-select" id="estado" name="estado" required>
+                        <option selected disabled value="">Escolha...</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor, selecione um estado válido.</div>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary" type="button" id="insert" onclick="insert">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+{% include "script.html" %}
+<script defer type="module" src="/js/empresa.js"></script>
+{% endblock %}

@@ -10,12 +10,3 @@ define('DIR_VIEW', ROOT . '/app/view');
 #$_SERVER['HTTP_CF_VISITOR'] : Indica o protocolo usado na requisição atual. podendo ser http ou https
 #Criamos uma constante chamada HOME que guarda automaticamente o endereço principal do site.
 define('HOME', $_SERVER['HTTP_CF_VISITOR'] . '://' . $_SERVER['HTTP_HOST']);
-#Configurações E-mail
-define('CONFIG_SMTP_EMAIL',[
-    'host' => 'smtp.titan.email',
-    'port' => 587,
-    'user' => 'noreplay@mkt.fanorte.edu.br',
-    'passwd' => '@w906083W@',
-    'from_name' => 'Mercantor',
-    'from_email' => 'noreplay@mkt.fanorte.edu.br'
-    ]);
